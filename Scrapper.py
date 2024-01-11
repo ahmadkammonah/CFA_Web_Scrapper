@@ -30,7 +30,11 @@ def scrape_data(url, start_page=1, end_page=18):
             InvestmentsRequired = soup.find_all('span', class_='content-franchise-card-value')
             
             for i in range(len(Industrys)):
-              data.append([Industrys[i].text, BusinessNames[i].text, InvestmentsRequired[i].text])
+              #Industrys[i] = Industrys[i].text
+              #BusinessNames[i] = BusinessNames[i].text
+              #InvestmentsRequired[i] = InvestmentsRequired[i].text
+              
+              data.append([(Industrys[i].text).strip(), (BusinessNames[i].text).strip(), (InvestmentsRequired[i].text).strip()])
         except Exception as e:
             print(f"Error on page {page}: {e}")
 
